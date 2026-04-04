@@ -1,0 +1,30 @@
+The data can be found at
+https://github.com/ninahernitschek/advanced_astroinformatics/releases/download/v1.0/_data.zip
+
+
+
+
+The data are structured as follows:
+
+
+_TESS_lightcurves_raw
+columns: 'JD','mag','err'
+These are raw light curves as extracted from the FFI (Full-Frame Images)
+
+_TESS_lightcurves_median_after_detrended
+columns: 'JD', 'mag_clean', 'mag_after_cbv', 'err' 
+These are detrended lightcurves, calculated from the raw light curves.
+The column 'mag_after_cbv' is calculated from the raw light curves after a detrending step called "CBV detrending", whereas the 'mag_clean'
+is an additional detrending step using a median detrending after the CBV detrending.
+
+_TESS_lightcurves_outliercleaned
+columns: 'JD','mag','err'
+These are detrended light curves with a further step of outlier cleaning.
+They are calculated from the _TESS_lightcurves_median_after_detrended light curves, using their 'mag_clean' column.
+
+
+NaN values in raw light curves can be:
+*********, ********, 9.999999, NaN
+
+Whereas all other light curves have NaN values only as:
+*********
